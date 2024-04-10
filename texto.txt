@@ -1,0 +1,33 @@
+
+El codigo primero checkea que la entrada no sea nula, luego itera sobre cada caracter de la lista en busca de corchetes. Al encontrar un corchete, si es te es de apertura ({) lo agrega a la pila, si es de cierre (}) primero checkea que la pila no este vacia y si no esta vacia quita un elemento de ella. En caso de que la pila este vacia antes de quitar un elemento el codigo termina de ejecutarse y devuelve falso. El ultimo caso posible es que se recorra toda la lista de caracteres, en ese caso si la pila esta vacia, el codigo devuelve verdadero. Si no esta vacia se devuelve falso.
+
+Precondiciones:
+
+- solo se pueden ingresar una lista de caracteres
+
+PostCondiciones:
+
+- devuelve true si la cadena es coherente
+- devuelve false si la cadena no es coherente
+- devuelve false si se comienza con un corchete derecho ("}")
+
+Pseudocodigo
+
+Boolean controlCorchetes( cadena  cadena_de_corchetes )
+com
+	SI (cadena_de_corchetes == nulo )
+    retornar false
+  fin si
+
+  PARA CADA (caracter en cadena_de_corchetes) hacer
+    SI (caracter = { )
+      agregar a pila
+    else
+      SI ( pila es vacia ) HACER
+        retornar FALSO
+      FIN SI
+      quitar de pila
+    FIN SI
+  FIN PARA CADA
+  retornar pila es vacia
+fin
